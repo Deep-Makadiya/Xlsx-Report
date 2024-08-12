@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_purchase_order_form_xlsx_report" model="ir.ui.view">
+        <field name="name">purchase.order.form.xlsx.report</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='button_cancel']" position="after">
+                 <button name ="print_excel" string="Print Xlsx" type="object" class="oe_highlight"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="data_fname" invisible="1"/>
+                <field name="file_name" filename="data_fname"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
